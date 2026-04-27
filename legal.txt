@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso Legal - MundoVaper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            position: relative;
+            color: #1e293b;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('fondo_web_vapers.png');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.2);
+            z-index: -1;
+        }
+
+        .legal-card {
+            background: white;
+            border-radius: 2rem;
+            max-width: 850px;
+            margin: 4rem auto;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 { color: #0f172a; text-transform: uppercase; font-weight: 900; letter-spacing: -0.025em; }
+        h2 { color: #0f172a; text-transform: uppercase; font-weight: 800; font-size: 1.25rem; margin-top: 2rem; margin-bottom: 1rem; border-left: 4px solid #f59e0b; padding-left: 1rem; }
+        p { margin-bottom: 1rem; line-height: 1.6; }
+        ul { margin-bottom: 1.5rem; }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 4rem 0;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="legal-card">
+        <!-- Logo y Cabecera -->
+        <div class="text-center mb-12">
+            <img src="LOGO.JPG" alt="MundoVaper" class="h-16 mx-auto mb-4">
+            <h1 class="text-3xl md:text-4xl text-slate-900">Información Legal</h1>
+            <p class="text-slate-400 font-bold uppercase text-xs tracking-widest mt-2">Cookies & Privacidad</p>
+        </div>
+
+        <!-- PARTE 1: POLÍTICA DE COOKIES -->
+        <div id="cookies">
+            <h1 class="text-2xl text-amber-600 mb-6"><i class="fas fa-cookie-bite mr-2"></i> Política de Cookies</h1>
+            
+            <section>
+                <h2>¿Qué son las cookies?</h2>
+                <p>Las cookies son pequeños archivos de texto que se almacenan en su navegador cuando visita MundoVaper. Sirven para que la web recuerde su visita cuando vuelva a navegar por esta página o para habilitar funciones específicas como los menús dinámicos y el registro en la Lista VIP.</p>
+            </section>
+
+            <section>
+                <h2>Cookies que utilizamos</h2>
+                <div class="grid md:grid-cols-2 gap-4 mt-4">
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                        <p class="font-black text-slate-900 uppercase text-xs mb-2">Técnicas (Necesarias)</p>
+                        <p class="text-sm text-slate-600 mb-0">Esenciales para que la web funcione, permitiendo el uso de las ventanas de sabores (modales) y la navegación segura.</p>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                        <p class="font-black text-slate-900 uppercase text-xs mb-2">De Terceros (Google)</p>
+                        <p class="text-sm text-slate-600 mb-0">Utilizamos servicios de Google para gestionar el formulario de suscripción, los cuales pueden instalar cookies para prevenir spam y analizar el tráfico.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Control de cookies</h2>
+                <p>Usted puede restringir, bloquear o borrar las cookies de MundoVaper utilizando la configuración de su propio navegador. En la sección de "Ayuda" de su navegador encontrará los pasos específicos para hacerlo.</p>
+            </section>
+        </div>
+
+        <!-- Divisor Visual -->
+        <div class="section-divider"></div>
+
+        <!-- PARTE 2: POLÍTICA DE PRIVACIDAD -->
+        <div id="privacidad">
+            <h1 class="text-2xl text-blue-600 mb-6"><i class="fas fa-user-shield mr-2"></i> Política de Privacidad</h1>
+
+            <section>
+                <h2>1. Responsable del Tratamiento</h2>
+                <p>El responsable del tratamiento de los datos recogidos en este sitio web es <strong>MundoVaper</strong>. El usuario puede contactar directamente con nosotros a través del número oficial de WhatsApp: <strong>+34 643 66 48 34</strong>.</p>
+            </section>
+
+            <section>
+                <h2>2. Datos que recopilamos</h2>
+                <p>A través de nuestro formulario de suscripción "Lista VIP", recopilamos los siguientes datos necesarios para la prestación del servicio:</p>
+                <ul class="list-disc ml-6 space-y-1 font-medium">
+                    <li>Nombre Completo</li>
+                    <li>Dirección de correo electrónico</li>
+                    <li>Número de teléfono móvil (WhatsApp)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. Uso de los datos y comunicaciones por WhatsApp</h2>
+                <p>Al facilitar sus datos en el formulario, el usuario consiente expresamente que MundoVaper los utilice para las siguientes finalidades:</p>
+                <div class="bg-blue-50 p-5 rounded-2xl border-l-4 border-blue-400 mb-4">
+                    <ul class="list-none space-y-3 mb-0">
+                        <li><i class="fab fa-whatsapp text-green-500 mr-2 text-lg"></i> <strong>Marketing Directo:</strong> Envío de catálogos de sabores, listas de precios actualizadas y ofertas de stock directamente a su WhatsApp.</li>
+                        <li><i class="fas fa-truck text-blue-500 mr-2"></i> <strong>Gestión Logística:</strong> Coordinación de entregas a domicilio y confirmación de pedidos.</li>
+                        <li><i class="fas fa-info-circle text-blue-500 mr-2"></i> <strong>Soporte:</strong> Resolución de dudas técnicas sobre los vapers Vapsolo y Razz Bar.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="bg-red-50 p-6 rounded-3xl border-2 border-red-100 my-8">
+                <h2 class="text-red-700 border-red-300 mt-0">4. Protección de menores (+18)</h2>
+                <p class="font-bold text-red-800 uppercase italic text-sm leading-relaxed mb-0">
+                    Queda terminantemente prohibido el uso de esta web y el registro en la lista VIP a personas menores de 18 años. MundoVaper se reserva el derecho de cancelar cualquier suscripción o pedido si se detecta que el usuario es menor de edad. La verificación de edad se realizará de forma obligatoria en el momento de la entrega del producto.
+                </p>
+            </section>
+
+            <section>
+                <h2>5. Sus Derechos</h2>
+                <p>Usted tiene derecho a acceder a su información, rectificar datos erróneos o solicitar la supresión total de sus datos de nuestra base comercial. </p>
+                <p>Para dejar de recibir ofertas y comunicaciones, simplemente responda con la palabra <strong>"BAJA"</strong> a nuestro canal de WhatsApp o envíe un mensaje solicitando la cancelación de su suscripción VIP.</p>
+            </section>
+
+            <div class="pt-12 mt-12 border-t border-slate-100 text-center">
+                <button onclick="window.close()" class="bg-slate-900 text-white px-10 py-4 rounded-full font-black uppercase text-sm shadow-xl hover:scale-105 transition-transform">
+                    Cerrar y volver a MundoVaper
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MundoVaper | Distribuidor Oficial Vapers al Por Mayor en España</title>
+    <meta name="description" content="Distribuidor oficial de Vapsolo Super 15000 y Razz Bar 30000 al por mayor en España. Contacto directo con fábrica, stock permanente y envíos a toda España. Desde 8,50€/ud. Contacta por WhatsApp.">
+    <meta name="keywords" content="vapers al por mayor España, distribuidor vapers desechables, Vapsolo mayorista España, Razz Bar distribuidor oficial, comprar vapers por mayor, distribución vapers España, vaper desechable mayorista">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="MundoVaper">
+    <link rel="canonical" href="https://elmundovaper.es/">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elmundovaper.es/">
+    <meta property="og:title" content="MundoVaper | Distribuidor Oficial Vapers al Por Mayor en España">
+    <meta property="og:description" content="Distribuidor oficial de Vapsolo Super 15000 y Razz Bar 30000. Contacto directo con fábrica, stock permanente y envíos a toda España. Desde 8,50€/ud.">
+    <meta property="og:image" content="https://elmundovaper.es/LOGO.JPG">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="MundoVaper">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MundoVaper | Distribuidor Oficial Vapers al Por Mayor en España">
+    <meta name="twitter:description" content="Distribuidor oficial de Vapsolo y Razz Bar al por mayor en España. Stock permanente, envíos rápidos a toda España.">
+    <meta name="twitter:image" content="https://elmundovaper.es/LOGO.JPG">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('fondo_web_vapers.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.25);
+            z-index: -1;
+        }
+
+        .floating-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            padding: 2.5rem 2rem;
+            margin: 0.5rem auto;
+            width: 95%;
+            max-width: 850px;
+        }
+
+        .block-section { padding: 0.5rem 1rem; }
+
+        .whatsapp-btn {
+            background-color: #1a8f4a;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #0f6b35;
+            transform: translateY(-2px);
+        }
+
+        header {
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        .nav-link {
+            font-size: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #1e293b;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-link:hover { color: #2563eb; }
+
+        .header-logo {
+            height: 5.5rem;
+            width: auto;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 550px;
+            max-height: 85vh;
+            border-radius: 2rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden; 
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            z-index: 50;
+        }
+
+        .modal-body {
+            overflow-y: auto;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .flavor-row {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .flavor-img-btn {
+            width: 60px;
+            height: 60px;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+        .flavor-img-btn:hover { transform: scale(1.05); border-color: #3b82f6; }
+        .flavor-img-btn img { max-width: 90%; max-height: 90%; object-fit: contain; }
+
+        .flavor-name { font-weight: 700; color: #0f172a; font-size: 1.1rem; }
+
+        #internal-zoom-panel, #internal-zoom-panel-razz {
+            display: none;
+            position: absolute;
+            inset: 0;
+            background: white;
+            z-index: 100;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .internal-zoom-img {
+            max-width: 100%;
+            max-height: 80%;
+            object-fit: contain;
+            transform: scale(1.1);
+        }
+
+        .vip-input {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            padding: 1rem;
+            border-radius: 1rem;
+            width: 100%;
+            outline: none;
+        }
+        .vip-submit {
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+            color: white;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 1.25rem;
+            border-radius: 1rem;
+            width: 100%;
+            cursor: pointer;
+        }
+        .vip-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        #cookie-banner {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: white;
+            z-index: 2000;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.3);
+            display: none;
+            border-top: 4px solid #f59e0b;
+        }
+
+        .brand-logo-header {
+            height: 3.5rem;
+            width: auto;
+            margin-bottom: 0.5rem;
+        }
+
+        #global-zoom {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["Organization", "LocalBusiness"],
+          "@id": "https://elmundovaper.es/#organization",
+          "name": "MundoVaper",
+          "alternateName": ["Mundo Vaper", "MundoVaper España"],
+          "description": "Distribuidor oficial mayorista de vapers desechables Vapsolo Super 15000 y Razz Bar 30000 en España. Contacto directo con fábrica, stock permanente y envíos rápidos a toda España.",
+          "url": "https://elmundovaper.es",
+          "logo": { "@type": "ImageObject", "url": "https://elmundovaper.es/LOGO.JPG" },
+          "image": "https://elmundovaper.es/LOGO.JPG",
+          "telephone": "+34643664834",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Manresa",
+            "addressRegion": "Cataluña",
+            "postalCode": "08240",
+            "addressCountry": "ES"
+          },
+          "areaServed": { "@type": "Country", "name": "España" },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+34643664834",
+            "contactType": "sales",
+            "areaServed": "ES",
+            "availableLanguage": ["Spanish", "Catalan"]
+          },
+          "knowsAbout": ["vapers desechables", "cigarrillos electrónicos", "distribución mayorista", "Vapsolo", "Razz Bar", "vapers al por mayor España"],
+          "priceRange": "€€"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://elmundovaper.es/#website",
+          "url": "https://elmundovaper.es",
+          "name": "MundoVaper",
+          "description": "Distribuidor oficial mayorista de vapers desechables en España",
+          "publisher": { "@id": "https://elmundovaper.es/#organization" },
+          "inLanguage": "es-ES"
+        },
+        {
+          "@type": "Product",
+          "@id": "https://elmundovaper.es/#vapsolo",
+          "name": "Vapsolo Super 15000",
+          "description": "Vaper desechable con 15.000 caladas, 4 niveles de control de flujo de aire, batería 650mAh recargable USB-C y tecnología Mesh Coil 1.0Ω. Disponible en 25 sabores.",
+          "brand": { "@type": "Brand", "name": "Vapsolo" },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "EUR",
+            "lowPrice": "7.50",
+            "highPrice": "8.50",
+            "seller": { "@id": "https://elmundovaper.es/#organization" }
+          }
+        },
+        {
+          "@type": "Product",
+          "@id": "https://elmundovaper.es/#razzbar",
+          "name": "Razz Bar 30000",
+          "description": "Vaper desechable con 30.000 caladas reales, pantalla digital inteligente y tecnología Dual Mesh. El vaper desechable de mayor duración disponible en España. Disponible en 16 sabores.",
+          "brand": { "@type": "Brand", "name": "Razz Bar" },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "EUR",
+            "lowPrice": "7.50",
+            "highPrice": "8.50",
+            "seller": { "@id": "https://elmundovaper.es/#organization" }
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Header Blanco -->
+    <header class="fixed top-0 w-full bg-white shadow-xl z-[100]">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-8 gap-4">
+            <img src="LOGO.JPG" alt="MundoVaper" class="header-logo">
+            <nav class="flex flex-wrap justify-center gap-6 md:gap-12 pb-2 lg:pb-0">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#vapsolo" class="nav-link">Vapsolo</a>
+                <a href="#razzbar" class="nav-link">Razzbar</a>
+                <a href="#precios" class="nav-link">Tarifas</a>
+                <a href="#vip" class="nav-link text-amber-700">Lista VIP</a>
+                <a href="about.html" class="nav-link">Nosotros</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="legal.html" class="nav-link text-slate-600">Legal</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-48 pb-12">
+        
+        <!-- SECCIÓN INICIO -->
+        <section id="inicio" class="block-section">
+            <div class="floating-card flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2 order-2 md:order-1 text-center md:text-left">
+                    <h1 class="text-3xl md:text-5xl font-black text-slate-900 mb-4 uppercase leading-tight">MundoVaper España</h1>
+                    <p class="text-slate-700 mb-6 text-lg font-medium leading-relaxed">
+                        Distribución oficial directa de fábrica para profesionales. Garantizamos la <strong>mejor logística del sector</strong> con entregas rápidas y seguras. Contamos con <strong>disponibilidad de stock permanente</strong> en los modelos más demandados para asegurar el suministro constante de tu negocio.
+                    </p>
+                    <a href="https://wa.me/34643664834" class="whatsapp-btn flex items-center px-8 py-4 rounded-full font-black w-full justify-center text-xl shadow-xl">
+                        <i class="fab fa-whatsapp mr-3 text-3xl"></i> CONTACTAR AHORA
+                    </a>
+                </div>
+                <div class="md:w-1/2 order-1 md:order-2">
+                    <video class="w-full rounded-2xl shadow-xl" autoplay muted loop playsinline>
+                        <source src="VIDEO_PRIMER_BLOQUE.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN VAPSOLO -->
+        <section id="vapsolo" class="block-section">
+            <div class="floating-card border-l-8 border-blue-600">
+                <div class="flex flex-col md:flex-row items-center gap-8 mb-8">
+                    <div class="md:w-1/2">
+                        <img src="vapsolo_logo.png" alt="Vapsolo" class="brand-logo-header">
+                        <h2 class="text-3xl font-black text-slate-900 mb-2 uppercase">SUPER 15000</h2>
+                        <div class="space-y-2 mb-6 text-sm font-bold text-slate-600">
+                            <p><i class="fas fa-wind text-blue-500 mr-2"></i> 4 Niveles de Control de Flujo</p>
+                            <p><i class="fas fa-battery-three-quarters text-blue-500 mr-2"></i> Batería 650mAh USB-C</p>
+                            <p><i class="fas fa-microchip text-blue-500 mr-2"></i> Tecnología Mesh Coil 1.0Ω</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="bloque_vapsolo.jpg" alt="Vapsolo Super 15000 - Vaper desechable al por mayor en España" class="w-full rounded-2xl shadow-md cursor-pointer" onclick="openGlobalZoom(this.src)">
+                    </div>
+                </div>
+                <button onclick="openModal('modal-vapsolo')" class="bg-slate-900 text-white font-black py-4 rounded-xl w-full uppercase tracking-widest hover:bg-blue-700 transition-all shadow-lg">
+                    Ver lista de sabores
+                </button>
+            </div>
+        </section>
+
+        <!-- SECCIÓN RAZZ BAR -->
+        <section id="razzbar" class="block-section">
+            <div class="floating-card border-l-8 border-purple-600">
+                <div class="flex flex-col md:flex-row items-center gap-8 mb-8">
+                    <div class="md:w-1/2">
+                        <img src="razzbar_logo.png" alt="Razz Bar" class="brand-logo-header">
+                        <h2 class="text-3xl font-black text-slate-900 mb-2 uppercase">30000 PUFFS</h2>
+                        <div class="space-y-2 mb-6 text-sm font-bold text-slate-600">
+                            <p><i class="fas fa-tv text-purple-500 mr-2"></i> Pantalla Digital Inteligente</p>
+                            <p><i class="fas fa-infinity text-purple-500 mr-2"></i> 30.000 Caladas Reales</p>
+                            <p><i class="fas fa-atom text-purple-500 mr-2"></i> Dual Mesh Technology</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="bloque_razzbar.jpg" alt="Razz Bar 30000 - Vaper desechable al por mayor en España" class="w-full rounded-2xl shadow-md cursor-pointer" onclick="openGlobalZoom(this.src)">
+                    </div>
+                </div>
+                <button onclick="openModal('modal-razzbar')" class="bg-slate-900 text-white font-black py-4 rounded-xl w-full uppercase tracking-widest hover:bg-purple-700 transition-all shadow-lg">
+                    Ver lista de sabores
+                </button>
+            </div>
+        </section>
+
+        <!-- TARIFAS -->
+        <section id="precios" class="block-section">
+            <div class="floating-card">
+                <h2 class="text-2xl font-black text-center mb-6 uppercase text-slate-900 italic underline decoration-amber-500 underline-offset-8">Tarifas</h2>
+                <div class="overflow-hidden rounded-2xl border-2 border-slate-100 text-center">
+                    <table class="w-full text-center">
+                        <thead class="bg-slate-900 text-white">
+                            <tr>
+                                <th class="py-4 font-black uppercase text-xs text-white">Cantidad</th>
+                                <th class="py-4 font-black uppercase text-xs text-white">Precio/ud</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-black text-xl">
+                            <tr class="border-b"><td class="py-5 italic text-slate-500">10 - 49 ud</td><td class="py-5 text-amber-600">8,50 €</td></tr>
+                            <tr class="border-b bg-slate-50"><td class="py-5 italic text-slate-500">50 - 99 ud</td><td class="py-5 text-amber-600">8,00 €</td></tr>
+                            <tr class="border-b"><td class="py-5 italic text-slate-500">100 - 199 ud</td><td class="py-5 text-amber-600">7,50 €</td></tr>
+                            <tr><td class="py-5 italic text-slate-600">200+ ud</td><td class="py-5 text-slate-600 text-sm uppercase">Consultar WhatsApp</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIP FORM - CONECTADO CON LOS IDs QUE ME HAS PASADO -->
+        <section id="vip" class="block-section">
+            <div class="floating-card border-2 border-amber-400 bg-white">
+                <div class="text-center mb-8">
+                    <div class="inline-block bg-amber-600 text-white px-3 py-1 rounded-full text-[10px] font-black mb-3 uppercase tracking-tighter">Ofertas Exclusivas</div>
+                    <h2 class="text-3xl font-black uppercase text-slate-900">Lista VIP MundoVaper</h2>
+                    <p class="text-slate-600 font-medium italic mt-2 text-sm">Únete para recibir los catálogos y promociones antes que nadie.</p>
+                </div>
+
+                <form id="native-vip-form" 
+                    action="https://docs.google.com/forms/d/e/1FAIpQLScZqZdTG5BegDgJLEZS-5F8rInvmT8pt3TeIu9LFqqi0XAAHA/formResponse" 
+                    method="POST" 
+                    target="hidden_iframe">
+                    
+                    <div class="space-y-4 max-w-md mx-auto">
+                        <!-- Nombre Completo -->
+                        <input type="text" name="entry.2005620554" placeholder="Nombre Completo" class="vip-input" required>
+                        
+                        <!-- Email -->
+                        <input type="email" name="entry.1045781291" placeholder="Correo electrónico" class="vip-input" required>
+                        
+                        <!-- Dirección -->
+                        <input type="text" name="entry.1065046570" placeholder="Dirección de entrega" class="vip-input" required>
+                        
+                        <!-- Teléfono / WhatsApp -->
+                        <input type="tel" name="entry.1166974658" placeholder="Teléfono Móvil (WhatsApp)" class="vip-input" required>
+                        
+                        <div class="flex items-start gap-3 px-2 py-2">
+                            <input type="checkbox" id="legal-check" class="mt-1 h-5 w-5" onchange="toggleSubmit()">
+                            <label for="legal-check" class="text-[10px] text-slate-500 leading-tight">
+                                Confirmo que soy <strong>mayor de 18 años</strong> y acepto el 
+                                <a href="legal.html" target="_blank" class="text-amber-600 underline font-bold">Aviso Legal y Política de Privacidad</a> de MundoVaper.
+                            </label>
+                        </div>
+                        <button type="submit" id="submit-btn" class="vip-submit" disabled>Suscribirme Gratis</button>
+                    </div>
+                </form>
+
+                <div id="success-message" class="hidden text-center p-6 bg-green-50 rounded-2xl text-green-700 font-black mt-4 border border-green-200">
+                    <i class="fas fa-check-circle mr-2"></i> ¡REGISTRO COMPLETADO CON ÉXITO!
+                </div>
+
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.submitted) {showSuccess();}"></iframe>
+            </div>
+        </section>
+
+        <!-- CONTACTO FINAL -->
+        <section class="block-section">
+            <div class="floating-card border-2 border-slate-100 text-center">
+                <img src="imagen_ultimo_bloque.jpg" alt="MundoVaper - Contactar para pedidos mayoristas de vapers" class="w-44 h-44 object-cover rounded-full mx-auto mb-8 border-4 border-amber-500 shadow-2xl">
+                <h3 class="text-3xl font-black mb-4 uppercase italic text-slate-900">¿Hacemos tu primer envío?</h3>
+                <p class="text-slate-500 mb-8 max-w-sm mx-auto font-medium">Pulsa el botón inferior para abrir un chat directo con nuestro almacén.</p>
+                <a href="https://wa.me/34643664834" class="whatsapp-btn inline-flex items-center px-12 py-5 rounded-full font-black text-2xl shadow-xl transform hover:scale-105 transition-transform">
+                    <i class="fab fa-whatsapp mr-3 text-4xl"></i> PEDIR AHORA
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL VAPSOLO -->
+    <div id="modal-vapsolo" class="modal-overlay" onclick="closeModal('modal-vapsolo')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <span class="font-black uppercase tracking-tighter text-lg text-slate-900">SABORES VAPSOLO 15K</span>
+                <button onclick="closeModal('modal-vapsolo')" class="text-2xl text-slate-300"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-[10px] text-center text-slate-400 py-3 uppercase font-black tracking-widest bg-slate-50 border-b italic">Toca la imagen para verla en grande dentro del bloque</p>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('blueberrycherrycanberry_vapsolo.png', 'Blueberry Cherry Cranberry')"><img src="blueberrycherrycanberry_vapsolo.png"></div><span class="flavor-name">Blueberry Cherry Cranberry</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('blueberrycherrycola_vapsolo.png', 'Blueberry Cherry Cola')"><img src="blueberrycherrycola_vapsolo.png"></div><span class="flavor-name">Blueberry Cherry Cola</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('blueberryblackcurrantice_vapsolo.png', 'Blueberry Blackcurrant Ice')"><img src="blueberryblackcurrantice_vapsolo.png"></div><span class="flavor-name">Blueberry Blackcurrant Ice</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('blueberryice_vapsolo.png', 'Blueberry Ice')"><img src="blueberryice_vapsolo.png"></div><span class="flavor-name">Blueberry Ice</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('blackberryblueberryice_vapsolo.png', 'Blackberry Blueberry Ice')"><img src="blackberryblueberryice_vapsolo.png"></div><span class="flavor-name">Blackberry Blueberry Ice</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('blackicedragonfruitstrawberry_vapsolo.png', 'Black Ice Dragonfruit Strawberry')"><img src="blackicedragonfruitstrawberry_vapsolo.png"></div><span class="flavor-name">Black Ice Dragonfruit Strawberry</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('strawberryvainillacola_vapsolo.png', 'Strawberry Vanilla Cola')"><img src="strawberryvainillacola_vapsolo.png"></div><span class="flavor-name">Strawberry Vanilla Cola</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('strawberryice_vapsolo.png', 'Strawberry Ice')"><img src="strawberryice_vapsolo.png"></div><span class="flavor-name">Strawberry Ice</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('strawberrykiwi_vapsolo.png', 'Strawberry Kiwi')"><img src="strawberrykiwi_vapsolo.png"></div><span class="flavor-name">Strawberry Kiwi</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('strawberrybanana_vapsolo.png', 'Strawberry Banana')"><img src="strawberrybanana_vapsolo.png"></div><span class="flavor-name">Strawberry Banana</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('strawberrywhatermelon_vapsolo.png', 'Strawberry Watermelon')"><img src="strawberrywhatermelon_vapsolo.png"></div><span class="flavor-name">Strawberry Watermelon</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('raspberrywatermelon_vapsolo.png', 'Raspberry Watermelon')"><img src="raspberrywatermelon_vapsolo.png"></div><span class="flavor-name">Raspberry Watermelon</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('grapeburst_vapsolo.png', 'Grape Burst')"><img src="grapeburst_vapsolo.png"></div><span class="flavor-name">Grape Burst</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('watermelonice_vapsolo.png', 'Watermelon Ice')"><img src="watermelonice_vapsolo.png"></div><span class="flavor-name">Watermelon Ice</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('mixedberry_vapsolo.png', 'Mixed Berry')"><img src="mixedberry_vapsolo.png"></div><span class="flavor-name">Mixed Berry</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('peachberry_vapsolo.png', 'Peach Berry')"><img src="peachberry_vapsolo.png"></div><span class="flavor-name">Peach Berry</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('peachmangopineapple_vapsolo.png', 'Peach Mango Pineapple')"><img src="peachmangopineapple_vapsolo.png"></div><span class="flavor-name">Peach Mango Pineapple</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('kiwipassionfruitguava_vapsolo.png', 'Kiwi Passionfruit Guava')"><img src="kiwipassionfruitguava_vapsolo.png"></div><span class="flavor-name">Kiwi Passionfruit Guava</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('lemonlime_vapsolo.png', 'Lemon Lime')"><img src="lemonlime_vapsolo.png"></div><span class="flavor-name">Lemon Lime</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('pinklemonade_vapsolo.png', 'Pink Lemonade')"><img src="pinklemonade_vapsolo.png"></div><span class="flavor-name">Pink Lemonade</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('doubleapple_vapsolo.png', 'Double Apple')"><img src="doubleapple_vapsolo.png"></div><span class="flavor-name">Double Apple</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('triplecherry_vapsolo.png', 'Triple Cherry')"><img src="triplecherry_vapsolo.png"></div><span class="flavor-name">Triple Cherry</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('coolmint_vapsolo.png', 'Cool Mint')"><img src="coolmint_vapsolo.png"></div><span class="flavor-name">Cool Mint</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('redbull_vapsolo.png', 'Red Bull')"><img src="redbull_vapsolo.png"></div><span class="flavor-name">Red Bull</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('love66_vapsolo.png', 'Love 66')"><img src="love66_vapsolo.png"></div><span class="flavor-name">Love 66</span></div>
+            </div>
+
+            <div id="internal-zoom-panel" onclick="closeInternalZoom()">
+                <div class="w-full flex justify-between items-center mb-4 px-4">
+                    <span id="zoom-flavor-title" class="font-black text-slate-900 uppercase"></span>
+                    <button class="text-2xl text-slate-400"><i class="fas fa-times"></i></button>
+                </div>
+                <img id="internal-zoom-img" class="internal-zoom-img" src="">
+                <p class="mt-6 text-xs font-bold text-slate-400 uppercase">Toca para volver a la lista</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL RAZZBAR -->
+    <div id="modal-razzbar" class="modal-overlay" onclick="closeModal('modal-razzbar')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <span class="font-black uppercase tracking-tighter text-lg text-slate-900">SABORES RAZZ BAR 30K</span>
+                <button onclick="closeModal('modal-razzbar')" class="text-2xl text-slate-300"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-[10px] text-center text-slate-400 py-3 uppercase font-black tracking-widest bg-slate-50 border-b italic">Toca la imagen para verla en grande dentro del bloque</p>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('triplemelon_razzbar.png', 'Triple Melon')"><img src="triplemelon_razzbar.png"></div><span class="flavor-name">Triple Melon</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('strawberryice_razzbar.png', 'Strawberry Ice')"><img src="strawberryice_razzbar.png"></div><span class="flavor-name">Strawberry Ice</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('strawberrykiwi_razzbar.png', 'Strawberry Kiwi')"><img src="strawberrykiwi_razzbar.png"></div><span class="flavor-name">Strawberry Kiwi</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('strawberrybannana_razzbar.png', 'Strawberry Banana')"><img src="strawberrybannana_razzbar.png"></div><span class="flavor-name">Strawberry Banana</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('strawberywhatermelon_razzbar.png', 'Strawberry Watermelon')"><img src="strawberywhatermelon_razzbar.png"></div><span class="flavor-name">Strawberry Watermelon</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('sourapple_razzbar.png', 'Sour Apple')"><img src="sourapple_razzbar.png"></div><span class="flavor-name">Sour Apple</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('mangopeachwhatermelon_razzbar.png', 'Mango Peach Watermelon')"><img src="mangopeachwhatermelon_razzbar.png"></div><span class="flavor-name">Mango Peach Watermelon</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('blueberryice_razzbar.png', 'Blueberry Ice')"><img src="blueberryice_razzbar.png"></div><span class="flavor-name">Blueberry Ice</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('bluerazzice_razzbar.png', 'Blue Razz Ice')"><img src="bluerazzice_razzbar.png"></div><span class="flavor-name">Blue Razz Ice</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('whatermelonice_razzbar.png', 'Watermelon Ice')"><img src="whatermelonice_razzbar.png"></div><span class="flavor-name">Watermelon Ice</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('mixedberriesice_razzbar.png', 'Mixed Berries Ice')"><img src="mixedberriesice_razzbar.png"></div><span class="flavor-name">Mixed Berries Ice</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('juicypeachice_razzbar.png', 'Juicy Peach Ice')"><img src="juicypeachice_razzbar.png"></div><span class="flavor-name">Juicy Peach Ice</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('lemonlime_razzbar.png', 'Lemon Lime')"><img src="lemonlime_razzbar.png"></div><span class="flavor-name">Lemon Lime</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('colaice_razzbar.png', 'Cola Ice')"><img src="colaice_razzbar.png"></div><span class="flavor-name">Cola Ice</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('blacberryice_razzbar.png', 'Blackberry Ice')"><img src="blacberryice_razzbar.png"></div><span class="flavor-name">Blackberry Ice</span></div>
+                <div class="flavor-row"><div class="flavor-img-btn" onclick="zoomInsideModal('summerdream_razzbar.png', 'Summer Dream')"><img src="summerdream_razzbar.png"></div><span class="flavor-name">Summer Dream</span></div>
+            </div>
+
+            <div id="internal-zoom-panel-razz" onclick="closeInternalZoom()">
+                <div class="w-full flex justify-between items-center mb-4 px-4 pt-4">
+                    <span id="zoom-flavor-title-razz" class="font-black text-slate-900 uppercase"></span>
+                    <button class="text-2xl text-slate-400"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="flex-grow flex items-center justify-center">
+                    <img id="internal-zoom-img-razz" class="internal-zoom-img" src="" style="transform:scale(1.2);">
+                </div>
+                <p class="mb-8 text-xs font-bold text-slate-400 uppercase">Toca para volver a la lista</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZOOM GLOBAL -->
+    <div id="global-zoom" onclick="this.style.display='none'">
+        <img id="global-zoom-content" class="max-w-[95%] max-h-[95%] object-contain shadow-2xl rounded-xl">
+    </div>
+
+    <!-- BARRA DE COOKIES -->
+    <div id="cookie-banner" class="p-5">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-slate-600 text-xs md:text-sm leading-relaxed max-w-2xl text-center md:text-left">
+                <p class="font-bold text-slate-900 mb-1 uppercase tracking-tighter">🍪 Aviso de Cookies</p>
+                Utilizamos cookies técnicas necesarias para el funcionamiento del sitio y cookies de terceros (Google Forms) para el formulario de suscripción. Al aceptar consientes su uso. Si rechazas, solo se usarán las cookies estrictamente necesarias. Confirmas ser <strong>mayor de 18 años</strong>.
+                <a href="legal.html#cookies" target="_blank" class="underline text-amber-700 font-bold ml-1">Ver política de cookies</a>.
+            </div>
+            <div class="flex gap-3 shrink-0">
+                <button onclick="acceptCookies()" class="bg-slate-900 text-white px-8 py-3 rounded-full font-black uppercase text-[10px] shadow-lg">Aceptar todo</button>
+                <button onclick="rejectCookies()" class="bg-slate-100 text-slate-500 px-6 py-3 rounded-full font-black uppercase text-[10px] hover:bg-slate-200 transition-colors">Solo necesarias</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.submitted = false;
+
+        document.getElementById('native-vip-form').onsubmit = function() {
+            window.submitted = true;
+        };
+
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+            document.body.style.overflow = 'auto';
+            closeInternalZoom();
+        }
+
+        function zoomInsideModal(src, title) {
+            const panelVap = document.getElementById('internal-zoom-panel');
+            const panelRazz = document.getElementById('internal-zoom-panel-razz');
+            const isRazz = src.includes('razzbar');
+            const targetPanel = isRazz ? panelRazz : panelVap;
+            const targetImg = isRazz ? document.getElementById('internal-zoom-img-razz') : document.getElementById('internal-zoom-img');
+            const targetTitle = isRazz ? document.getElementById('zoom-flavor-title-razz') : document.getElementById('zoom-flavor-title');
+            targetImg.src = src;
+            targetTitle.innerText = title;
+            targetPanel.style.display = 'flex';
+        }
+
+        function closeInternalZoom() {
+            document.getElementById('internal-zoom-panel').style.display = 'none';
+            document.getElementById('internal-zoom-panel-razz').style.display = 'none';
+        }
+
+        function openGlobalZoom(src) {
+            const modal = document.getElementById('global-zoom');
+            document.getElementById('global-zoom-content').src = src;
+            modal.style.display = 'flex';
+        }
+
+        function toggleSubmit() {
+            document.getElementById('submit-btn').disabled = !document.getElementById('legal-check').checked;
+        }
+
+        function showSuccess() {
+            document.getElementById('native-vip-form').style.display = 'none';
+            document.getElementById('success-message').classList.remove('hidden');
+        }
+
+        window.onload = function() {
+            if (!localStorage.getItem('cookies_mundovaper_v2')) {
+                document.getElementById('cookie-banner').style.display = 'block';
+            }
+        };
+        function acceptCookies() {
+            localStorage.setItem('cookies_mundovaper_v2', 'accepted');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+        function rejectCookies() {
+            localStorage.setItem('cookies_mundovaper_v2', 'rejected');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
